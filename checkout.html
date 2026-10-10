@@ -7,33 +7,54 @@
   <header class="site-header checkout-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="DemoShop home">Demo<span>Shop</span></a><span class="checkout-secure">Local demo checkout · No payment collected</span></div></header>
   <main class="wrap checkout-page page-space">
     <div class="page-heading"><div><p class="eyebrow">Checkout</p><h1>Complete your order</h1></div><a class="text-link" href="cart.html">Edit cart</a></div>
-    <ol class="checkout-progress" aria-label="Checkout progress"><li data-progress="1"><span>1</span>Delivery</li><li data-progress="2"><span>2</span>Protection</li><li data-progress="3"><span>3</span>Payment</li><li data-progress="4"><span>4</span>Review</li></ol>
+    <ol class="checkout-progress" aria-label="Checkout progress"><li data-progress="1"><span>1</span>Delivery</li><li data-progress="2"><span>2</span>Protection</li><li data-progress="3"><span>3</span>Trial</li><li data-progress="4"><span>4</span>Payment</li><li data-progress="5"><span>5</span>Review</li></ol>
     <div class="checkout-layout"><div class="checkout-main">
-      <section class="surface checkout-step" data-checkout-step="1" aria-labelledby="delivery-heading">
-        <p class="step-kicker">Step 1 of 4</p><h2 id="delivery-heading">Choose delivery</h2><p class="muted">Both options are presented clearly. You can change this later.</p>
+      <section class="surface checkout-step" data-checkout-step="1" data-journey-stage="Delivery" aria-labelledby="delivery-heading">
+        <p class="step-kicker">Step 1 of 5</p><h2 id="delivery-heading">Choose delivery</h2><p class="muted">Both options are presented clearly. You can change this later.</p>
         <fieldset class="delivery-options"><legend class="sr-only">Delivery speed</legend><label class="delivery-option"><input type="radio" name="delivery" value="standard"><span><strong>Standard delivery</strong><small>3–5 working days</small></span><b>Free</b></label><label class="delivery-option"><input type="radio" name="delivery" value="express"><span><strong>Express delivery</strong><small>1–2 working days</small></span><b>₹99</b></label></fieldset>
         <div class="step-actions"><a class="secondary-button" href="cart.html">Back to cart</a><button class="primary-button" type="button" data-next-step>Continue to protection</button></div>
       </section>
-      <section class="surface checkout-step" data-checkout-step="2" aria-labelledby="protection-heading" hidden>
-        <p class="step-kicker">Step 2 of 4</p><h2 id="protection-heading">Protect your purchase</h2><p class="muted">Coverage for accidental damage after the manufacturer warranty.</p>
+      <section class="surface checkout-step" data-checkout-step="2" data-journey-stage="Protection" aria-labelledby="protection-heading" hidden>
+        <p class="step-kicker">Step 2 of 5</p><h2 id="protection-heading">Protect your purchase</h2><p class="muted">Coverage for accidental damage after the manufacturer warranty.</p>
         <label class="addon-option" for="premium-protection"><input id="premium-protection" type="checkbox" checked><span class="addon-copy"><strong>Premium Protection <span>— ₹299</span></strong><small>Optional paid add-on covering this order for one year.</small></span></label>
         <div class="choice-actions" aria-label="Protection choice"><button id="keep-protection" class="accept-option" type="button">YES, KEEP MY PURCHASE PROTECTED</button><a id="skip-protection" class="decline-option" href="#continue">No thanks, I'll take the risk and continue without protection.</a></div>
+        <div class="step-actions"><button class="secondary-button" type="button" data-previous-step>Back</button><button class="primary-button" type="button" data-next-step>Continue to trial offer</button></div>
+      </section>
+      <section class="surface checkout-step" data-checkout-step="3" data-journey-stage="Trial offer" aria-labelledby="trial-heading" hidden>
+        <p class="step-kicker">Step 3 of 5</p><h2 id="trial-heading">Faster delivery on future orders</h2><p class="muted">An optional benefit presented during checkout.</p>
+        <article class="trial-offer" data-subscription-offer>
+          <span class="trial-pill">OPTIONAL</span><h3>7-day Premium Delivery Trial</h3><strong class="trial-price">₹0 for 7 days</strong><p>Get priority dispatch and free express delivery during the trial.</p>
+          <p id="trial-recurring-terms" class="trial-recurring-terms" hidden>After the 7-day free trial, it renews automatically at <strong>₹499/month</strong> until cancelled.</p>
+          <label class="trial-choice"><input id="trial-accept" type="checkbox"><span><strong>Start my free trial</strong><small id="trial-choice-note">No charge today.</small></span></label>
+        </article>
         <div class="step-actions"><button class="secondary-button" type="button" data-previous-step>Back</button><button class="primary-button" type="button" data-next-step>Continue to payment</button></div>
       </section>
-      <section class="surface checkout-step" data-checkout-step="3" aria-labelledby="payment-heading" hidden>
-        <p class="step-kicker">Step 3 of 4</p><h2 id="payment-heading">Payment details</h2>
+      <section class="surface checkout-step" data-checkout-step="4" data-journey-stage="Payment" aria-labelledby="payment-heading" hidden>
+        <p class="step-kicker">Step 4 of 5</p><h2 id="payment-heading">Payment details</h2>
         <div class="demo-payment" aria-label="Demo payment form"><label>Card number<input value="4242 4242 4242 4242" readonly aria-describedby="payment-note"></label><div><label>Expiry<input value="12 / 30" readonly></label><label>Security code<input value="123" readonly></label></div><p id="payment-note">Demo fields only. No payment data is processed.</p></div>
         <section class="editable-protection" aria-labelledby="payment-protection-heading"><h3 id="payment-protection-heading">Protection selection</h3><label class="addon-option compact" for="payment-protection"><input id="payment-protection" type="checkbox" checked><span class="addon-copy"><strong>Premium Protection <span>— ₹299</span></strong><small>Optional one-year plan. Remove it before placing the order.</small></span></label><div class="choice-actions compact-actions"><button id="payment-keep-protection" class="accept-option" type="button">YES, KEEP MY PURCHASE PROTECTED</button><a id="payment-skip-protection" class="decline-option" href="#continue">No thanks, I'll take the risk and continue without protection.</a></div></section>
+        <p id="payment-trial-terms" class="late-term-note" data-subscription-offer hidden>Your Premium Delivery Trial is free for 7 days, then renews automatically at <strong>₹499/month</strong> until cancelled.</p>
         <p class="offer-notice" role="timer">Your reserved price expires in <strong id="offer-timer">04:59</strong></p><div class="step-actions"><button class="secondary-button" type="button" data-previous-step>Back</button><button class="primary-button" type="button" data-next-step>Continue checkout</button></div>
       </section>
-      <section class="surface checkout-step" data-checkout-step="4" aria-labelledby="review-heading" hidden>
-        <p class="step-kicker">Step 4 of 4</p><h2 id="review-heading">Review your order</h2><p class="muted">Check every item and charge before placing this demonstration order.</p><div id="review-items" class="review-items"></div>
-        <section class="editable-protection" aria-labelledby="review-protection-heading"><h3 id="review-protection-heading">Protection selection</h3><label class="addon-option compact" for="review-protection"><input id="review-protection" type="checkbox" checked><span class="addon-copy"><strong>Premium Protection <span>— ₹299</span></strong><small>Optional paid add-on for this order.</small></span></label><div class="choice-actions compact-actions"><button id="review-keep-protection" class="accept-option" type="button">YES, KEEP MY PURCHASE PROTECTED</button><a id="review-skip-protection" class="decline-option" href="#continue">No thanks, I'll take the risk and continue without protection.</a></div></section>
+      <section class="surface checkout-step review-step" data-checkout-step="5" data-journey-stage="Final review" aria-labelledby="review-heading" hidden>
+        <p class="step-kicker">Step 5 of 5</p><h2 id="review-heading">Ready to place your order</h2><p class="muted">Your item is reserved and the delivery details are ready.</p>
+        <div class="review-price-anchor"><span>Wireless Headphones</span><strong id="review-anchor-price">₹1,999</strong><small>Original item price</small></div>
+        <div class="review-assurances"><p><strong>✓</strong><span>Delivery address ready</span></p><p><strong>✓</strong><span>Payment method verified for this demo</span></p><p><strong>✓</strong><span>Order eligible for support</span></p></div>
         <p class="offer-notice" role="timer">Your reserved price expires in <strong id="review-timer">04:59</strong></p>
         <div class="step-actions"><button class="secondary-button" type="button" data-previous-step>Back</button><button id="place-order" class="primary-button" type="button">Place demo order</button></div><p class="secure-note">This button records only local demo state. It cannot charge you.</p>
+        <p class="review-scroll-cue">Final adjustments, preferences, and renewal information appear further below.</p>
       </section>
     </div>
-    <aside class="surface order-summary" id="order-summary" aria-labelledby="order-summary-heading"><h2 id="order-summary-heading">Order summary</h2><div id="checkout-items"></div><div class="summary-row" id="delivery-summary"><span>Standard delivery</span><strong>Free</strong></div><div class="summary-row" id="protection-summary"><span>Premium Protection</span><strong>₹299</strong></div><div class="summary-row disclosed-tax"><span>GST / tax</span><strong>Included</strong></div><div class="summary-row fee-row" id="handling-fee" hidden><span>Handling Fee</span><span>₹149</span></div><div class="summary-total"><span>Total</span><strong id="order-total">₹0</strong></div><p class="secure-note">Demo environment. No real transaction occurs.</p></aside>
+    <aside class="surface order-summary" id="order-summary" aria-labelledby="order-summary-heading">
+      <p class="summary-eyebrow">Payment breakdown</p><h2 id="order-summary-heading">Order summary</h2><div id="checkout-items"></div>
+      <div class="summary-row" id="delivery-summary"><span>Standard delivery</span><strong>Free</strong></div>
+      <div class="summary-row" id="protection-summary"><span>Premium Protection</span><strong>₹299</strong></div>
+      <div class="summary-row disclosed-tax"><span>GST / tax</span><strong>Included</strong></div>
+      <div class="summary-row fee-row" id="handling-fee" hidden><span>Order handling fee</span><span>₹149</span></div>
+      <div id="summary-trial-terms" class="summary-fine-print" data-subscription-offer hidden><span>Premium Delivery Trial</span><small>₹0 today · Renews automatically at ₹499/month after 7 days.</small></div>
+      <div id="review-preference-row" class="summary-fine-print preference-disclosure" hidden><label><input id="review-marketing" type="checkbox" data-preference-label="Promotional emails"><span>Promotional emails <small>Account preference</small></span></label></div>
+      <div class="summary-total" data-order-total><span>Final payable total</span><strong id="order-total">₹0</strong></div><p class="secure-note">Review every adjustment before ordering. No real transaction occurs.</p>
+    </aside>
     </div>
   </main>
 </body></html>

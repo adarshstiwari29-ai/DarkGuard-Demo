@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const items = document.getElementById("cart-items");
   const empty = document.getElementById("empty-cart");
   const checkout = document.getElementById("checkout-link");
+  const marketing = document.getElementById("marketing-toggle");
   function render() {
     const state = shop.getState();
     items.replaceChildren();
@@ -20,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     empty.hidden = state.cart.length > 0;
     items.hidden = state.cart.length === 0;
     checkout.hidden = state.cart.length === 0;
+    marketing.checked = Boolean(state.checkout.marketing);
+    document.getElementById("marketing-state").textContent = marketing.checked ? "ON" : "OFF";
   }
   items.addEventListener("click", (event) => {
     const row = event.target.closest("[data-product-id]");
@@ -29,9 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (event.target.closest("[data-change]")) shop.setQuantity(row.dataset.productId, entry.quantity + Number(event.target.closest("[data-change]").dataset.change));
     render();
   });
+  marketing.addEventListener("change", () => {
+    const state = shop.getState();
+    state.checkout.marketing = marketing.checked;
+    state.checkout.marketingExplicit = true;
+    shop.save();
+    document.getElementById("marketing-state").textContent = marketing.checked ? "ON" : "OFF";
+    document.getElementById("marketing-status").textContent = `Preference saved: promotional emails ${marketing.checked ? "ON" : "OFF"}.`;
+  });
+  document.getElementById("save-marketing-off").addEventListener("click", () => {
+    const state = shop.getState();
+    state.checkout.marketing = false;
+    state.checkout.marketingExplicit = true;
+    marketing.checked = false;
+    shop.save();
+    document.getElementById("marketing-state").textContent = "OFF";
+    document.getElementById("marketing-status").textContent = "Preference saved: promotional emails OFF.";
+  });
   checkout.addEventListener("click", () => {
     const state = shop.getState();
-    state.checkout = { step: 1, delivery: "standard", protection: true };
+    state.checkout = { ...state.checkout, step: 1, delivery: "standard",
+      protection: state.demoScenario !== "control", trialAccepted: false,
+      trialTermsVisible: false, quantityDriftApplied: false };
     shop.save();
   });
   render();

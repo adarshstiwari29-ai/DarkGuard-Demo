@@ -4,8 +4,9 @@
   const products = window.DEMOSHOP_PRODUCTS || [];
   const now = () => Date.now();
   const defaults = () => ({
-    version: 1, updatedAt: now(), demoReady: false, cart: [],
-    checkout: { step: 1, delivery: "standard", protection: true },
+    version: 2, updatedAt: now(), demoReady: false, demoScenario: "advanced", cart: [],
+    checkout: { step: 1, delivery: "standard", protection: true, marketing: false,
+      marketingExplicit: false, trialAccepted: false, trialTermsVisible: false, quantityDriftApplied: false },
     plusActive: false, cancelStep: 1, lastOrder: null
   });
 
@@ -15,8 +16,8 @@
   function load() {
     const stored = parse(localStorage.getItem(STORAGE_KEY));
     const mirrored = window.name.startsWith(WINDOW_PREFIX) ? parse(window.name.slice(WINDOW_PREFIX.length)) : null;
-    const source = [stored, mirrored].filter((item) => item?.version === 1).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))[0];
-    return source ? { ...defaults(), ...source, checkout: { ...defaults().checkout, ...source.checkout } } : defaults();
+    const source = [stored, mirrored].filter((item) => [1, 2].includes(item?.version)).sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))[0];
+    return source ? { ...defaults(), ...source, version: 2, checkout: { ...defaults().checkout, ...source.checkout } } : defaults();
   }
   let state = load();
   function save() {
@@ -27,8 +28,10 @@
     updateChrome();
     return state;
   }
-  function reset() {
+  function reset(scenario = "advanced") {
     state = defaults();
+    state.demoScenario = scenario === "control" ? "control" : "advanced";
+    state.checkout.protection = state.demoScenario !== "control";
     state.demoReady = true;
     save();
     return state;
@@ -77,16 +80,19 @@
     const bar = document.createElement("aside");
     bar.className = "demo-toolbar";
     bar.setAttribute("aria-label", "Presentation demo controls");
-    bar.innerHTML = '<span><strong>Demo Mode</strong> · Wireless Headphones presentation</span><button type="button">Reset 3-minute demo</button>';
-    bar.querySelector("button").addEventListener("click", () => {
-      reset();
+    bar.innerHTML = '<span><strong>Demo Mode</strong> · <span data-demo-scenario></span></span><div><button type="button" data-reset-scenario="advanced">Reset advanced demo</button><button type="button" data-reset-scenario="control">Reset fair control</button></div>';
+    bar.querySelector("[data-demo-scenario]").textContent = state.demoScenario === "control" ? "Fair control" : "Advanced integrity scenario";
+    bar.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-reset-scenario]");
+      if (!button) return;
+      reset(button.dataset.resetScenario);
       location.href = "index.html?demo=1";
     });
     document.body.prepend(bar);
   }
 
   const params = new URLSearchParams(location.search);
-  if (params.get("demo") === "1" && !state.demoReady) reset();
+  if (params.get("demo") === "1" && !state.demoReady) reset("advanced");
   window.DemoShop = {
     products, product, getState: () => state, save, reset, cartCount, subtotal,
     addToCart, setQuantity, ensureCart, format, productVisual
