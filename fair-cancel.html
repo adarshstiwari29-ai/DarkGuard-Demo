@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fair cancellation example | DemoShop</title><link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script><script src="app.js" defer></script><script src="fair-cancel.js" defer></script>
+</head><body>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">Demo<span>Shop</span></a><nav class="header-links"><a href="index.html">Shop</a><a class="active" href="account.html">Account</a><a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav></div></header>
+  <main class="wrap narrow-page page-space"><section class="surface fair-cancel-card"><p class="eyebrow">Fair cancellation control</p><div data-fair-step="1"><h1>Cancel DemoShop Plus?</h1><p>Your membership will remain active until the end of the current demo period.</p><div class="equal-actions"><a class="secondary-button" href="subscription.html">Keep membership</a><button class="danger-button" type="button" data-fair-next>Continue cancellation</button></div></div><div data-fair-step="2" hidden><h1>Confirm cancellation</h1><p>This is the final step. You can confirm or return without any retention screens.</p><div class="equal-actions"><button class="secondary-button" type="button" data-fair-back>Back</button><button class="danger-button" type="button" data-fair-confirm>Confirm cancellation</button></div></div><div id="fair-complete" hidden aria-live="polite"><span class="success-mark">✓</span><h1>Cancellation complete</h1><p>The local DemoShop Plus state has been updated.</p><a class="primary-link" href="account.html">Return to account</a></div></section></main>
+</body></html>
