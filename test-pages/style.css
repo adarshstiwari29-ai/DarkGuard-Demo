@@ -1,0 +1,16 @@
+:root { font: 16px Arial, sans-serif; color: #17253c; background: #f5f7fb; }
+body { margin: 0; padding: 32px; }
+main { max-width: 650px; margin: auto; padding: 28px; border: 1px solid #dfe5ef; border-radius: 12px; background: white; }
+h1 { font-size: 22px; }
+label { display: block; margin: 14px 0; }
+button { padding: 12px 18px; border: 0; border-radius: 7px; background: #4059d8; color: white; font: inherit; }
+a { color: #53637b; }
+.summary-row { display: flex; justify-content: space-between; margin: 10px 0; }
+.fee-row { color: #8993a2; font-size: 11px; }
+.prominent-fee { padding: 14px; border: 2px solid #17253c; font-size: 20px; }
+.total { display: flex; justify-content: space-between; margin-top: 17px; font-size: 20px; font-weight: 700; }
+.choice-group { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.strong-choice { min-width: 280px; min-height: 50px; font-size: 16px; }
+.weak-choice { color: #8c97a8; font-size: 11px; }
+.equal-choice { min-width: 160px; min-height: 44px; }
+[hidden] { display: none !important; }

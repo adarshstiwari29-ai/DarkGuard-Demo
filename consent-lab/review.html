@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy consent review | Fieldwork</title>
+<link rel="stylesheet" href="style.css">
+<script src="state.js" defer>
+</script>
+<script src="app.js" defer>
+</script>
+</head>
+<body data-page="review">
+<header class="masthead">
+<a class="brand" href="advanced.html" data-local>Fieldwork<small>IDEAS FOR EVERYDAY LIVING</small>
+</a>
+<nav aria-label="Main navigation"><a href="index.html">Consent Lab 2.0</a>
+<a href="advanced.html" data-local>Journal</a>
+<a href="preferences.html" data-local>Privacy preferences</a>
+<a href="fair-consent.html" data-local>Fair consent</a>
+</nav>
+</header>
+<main>
+<span class="eyebrow">Privacy centre · Step 2 of 2</span>
+<h1>Your current preferences.</h1>
+<p>These are the website's current settings. You can adjust each optional category below.</p>
+<section class="review-list" aria-label="Current privacy preferences">
+<div class="state-row">
+<strong>Essential</strong>
+<output>ON · Required</output>
+</div>
+<label>
+<strong>Analytics</strong>
+<output data-state="analytics">
+</output>
+<input type="checkbox" aria-label="Analytics" data-category="analytics">
+</label>
+<label>
+<strong>Personalization</strong>
+<output data-state="personalization">
+</output>
+<input type="checkbox" aria-label="Personalization" data-category="personalization">
+</label>
+<label>
+<strong>Marketing</strong>
+<output data-state="marketing">
+</output>
+<input type="checkbox" aria-label="Marketing" data-category="marketing">
+</label>
+</section>
+<div class="preference-actions">
+<button type="button" data-reading>Continue reading</button>
+<a href="preferences.html" data-local>Manage Preferences</a>
+</div>
+<article data-article hidden>
+<h2>A home that breathes</h2>
+<p>Start with a clear surface, a favourite book, and room for daylight. Good spaces work with the rhythm of your day.</p>
+</article>
+<section class="consent-banner equal" role="dialog" aria-labelledby="repeat-title" data-repeat-prompt data-consent-prompt hidden>
+<h2 id="repeat-title">Personalization for your next chapter</h2>
+<p>Enable optional analytics, personalization and marketing for more relevant stories and partner recommendations.</p>
+<div class="choices">
+<button type="button" data-accept>Accept All</button>
+<button type="button" data-reject>Reject All</button>
+</div>
+</section>
+<p role="status" data-status>
+</p>
+</main>
+<footer>Fieldwork Journal · ConsentLab controlled environment · No real tracking or external services.</footer>
+</body>
+</html>

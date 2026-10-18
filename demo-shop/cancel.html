@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancel DemoShop Plus | DemoShop</title><link rel="stylesheet" href="style.css">
+  <script src="products.js" defer></script><script src="app.js" defer></script><script src="cancel.js" defer></script>
+</head><body>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="index.html">Demo<span>Shop</span></a><nav class="header-links"><a href="index.html">Shop</a><a class="active" href="account.html">Account</a><a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav></div></header>
+  <main class="wrap narrow-page page-space">
+    <div class="page-heading"><div><p class="eyebrow">Your membership</p><h1>Cancel DemoShop Plus</h1><p class="muted">Complete the steps below to end the fictional membership.</p></div></div>
+    <div class="surface cancel-card">
+      <div class="membership-line"><span>DemoShop Plus</span><strong>₹499 / month after the first month</strong></div>
+      <div class="progress-copy"><span id="step-label" aria-live="polite">Step 1 of 5</span><span>Cancellation request</span></div><div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+      <section class="cancel-step" data-cancel-step="1"><p class="step-kicker">Step 1</p><h2>Why are you leaving?</h2><p>Your answer is optional, but you must continue to the next screen.</p><div class="reason-options"><label><input type="radio" name="reason"> I use it less than expected</label><label><input type="radio" name="reason"> It costs too much</label><label><input type="radio" name="reason"> Another reason</label></div><button type="button" class="flow-button" data-next>Continue cancellation</button></section>
+      <section class="cancel-step" data-cancel-step="2" hidden><p class="step-kicker">Step 2</p><h2>Would you like to pause instead?</h2><p>Keep your benefits while pausing the next demo billing period.</p><button type="button" class="flow-button" data-next>Continue cancellation</button></section>
+      <section class="cancel-step" data-cancel-step="3" hidden><p class="step-kicker">A special offer</p><h2>Stay and save 40%</h2><p>Keep your plan today and receive a discount on the next demo month.</p><button type="button" class="flow-button" data-next>Continue cancellation</button></section>
+      <section class="cancel-step" data-cancel-step="4" hidden><p class="step-kicker">Step 4</p><h2>Benefits you will lose</h2><p>Free delivery, special offers, and extended returns end with your membership.</p><button type="button" class="flow-button" data-next>Continue cancellation</button></section>
+      <section class="cancel-step" data-cancel-step="5" hidden><p class="step-kicker">Final step</p><h2>Confirm cancellation</h2><p>Your membership will end at the close of the current demo period.</p><button type="button" class="danger-button" id="confirm-cancellation">Confirm cancellation</button></section>
+      <section id="cancel-complete" class="cancel-complete" hidden aria-live="polite"><span class="success-mark">✓</span><h2>Cancellation complete</h2><p>The local DemoShop Plus membership is now inactive. No real subscription was changed.</p><a href="account.html">Return to your account</a></section>
+    </div>
+  </main>
+</body></html>

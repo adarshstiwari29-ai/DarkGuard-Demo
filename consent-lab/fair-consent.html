@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fair privacy consent | Fieldwork</title>
+<link rel="stylesheet" href="style.css">
+<script src="state.js" defer>
+</script>
+<script src="app.js" defer>
+</script>
+</head>
+<body data-page="fair">
+<header class="masthead">
+<a class="brand" href="advanced.html" data-local>Fieldwork<small>IDEAS FOR EVERYDAY LIVING</small>
+</a>
+<nav aria-label="Main navigation"><a href="index.html">Consent Lab 2.0</a>
+<a href="advanced.html" data-local>Journal</a>
+<a href="preferences.html" data-local>Privacy preferences</a>
+<a href="fair-consent.html" data-local>Fair consent</a>
+</nav>
+</header>
+<main>
+<span class="eyebrow">Fieldwork · Privacy centre</span>
+<h1>A choice that stays yours.</h1>
+<p>All optional cookies start off. Accept or reject in one step, or choose individual categories. We respect a rejection throughout this session.</p>
+<section class="consent-banner equal" role="dialog" aria-modal="false" aria-labelledby="cookie-title" data-consent-prompt data-initial-banner>
+<h2 id="cookie-title">Your privacy, your experience</h2>
+<p>We use essential cookies to keep this site working. Optional analytics help us understand readership; personalization and marketing help tailor stories and partner recommendations. You can change these choices at any time.</p>
+<div class="choices">
+<button class="accept" type="button" data-accept>Accept All</button>
+<button type="button" data-reject>Reject All</button>
+<a href="preferences.html" data-local>Manage Preferences</a>
+</div>
+</section>
+<section class="preferences" aria-label="Privacy preferences">
+<h2>Optional consent categories</h2>
+<section class="category">
+<label>
+<input type="checkbox" id="essential" checked disabled required aria-required="true">
+<span>
+<strong>Essential</strong>Required · always on</span>
+</label>
+<p>Security and remembering the choices you save.</p>
+</section>
+<section class="category">
+<label>
+<input type="checkbox" id="analytics" data-category="analytics">
+<span>
+<strong>Analytics</strong>Optional</span>
+</label>
+<p>Understand which stories readers find useful.</p>
+</section>
+<section class="category">
+<label>
+<input type="checkbox" id="personalization" data-category="personalization">
+<span>
+<strong>Personalization</strong>Optional</span>
+</label>
+<p>Tailor story recommendations to reading preferences.</p>
+</section>
+<section class="category">
+<label>
+<input type="checkbox" id="marketing" data-category="marketing">
+<span>
+<strong>Marketing</strong>Optional</span>
+</label>
+<p>Optional partner recommendations and advertising.</p>
+</section>
+<div class="preference-actions">
+<button type="button" data-save>Save Preferences</button>
+<a href="review.html" data-local>Review current settings</a>
+</div>
+</section>
+<p role="status" data-status>
+</p>
+<p class="notice">For an independent DarkGuard comparison, clear the earlier journey or use Reset Consent Demo here before scanning.</p>
+</main>
+<footer>Fieldwork Journal · ConsentLab controlled environment · No real tracking or external services.</footer>
+</body>
+</html>

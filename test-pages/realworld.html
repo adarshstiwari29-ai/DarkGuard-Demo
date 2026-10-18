@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Real-world compatibility fixture</title><link rel="stylesheet" href="style.css"><style>iframe{width:100%;height:180px;border:1px solid #dfe5ef;margin-top:15px}.modal-actions{display:grid;gap:14px}.modal-actions .weak-choice{justify-self:start}</style></head><body>
+<main id="app" data-react-root>
+  <h1>Compatibility checkout</h1>
+  <p role="timer">Estimated delivery update in 09:45</p>
+  <div id="shadow-host"></div>
+  <button id="open-modal" type="button">Choose membership</button>
+  <iframe id="same-origin-frame" title="Same-origin checkout option" src="iframe-child.html"></iframe>
+  <iframe id="inaccessible-frame" title="Sandboxed external widget" sandbox srcdoc="<!doctype html><p>Sandboxed payment widget</p>"></iframe>
+</main>
+<script>
+  const root = document.getElementById("shadow-host").attachShadow({ mode: "open" });
+  root.innerHTML = `<style>.card{display:flex;gap:10px;margin:16px 0;padding:14px;border:1px solid #ccd4e2;background:white}</style><section class="card"><span role="switch" aria-checked="true" tabindex="0">On</span><span>Optional priority support — <span>£</span><span>5</span></span></section>`;
+  document.getElementById("open-modal").addEventListener("click", () => {
+    if (document.getElementById("membership-modal")) return;
+    const dialog = document.createElement("div");
+    dialog.id = "membership-modal"; dialog.setAttribute("role", "dialog"); dialog.setAttribute("aria-label", "Membership choice");
+    dialog.innerHTML = `<h2>Join today</h2><div class="modal-actions"><button class="strong-choice">Yes, subscribe</button><a class="weak-choice" href="#skip">No thanks, I'll take the risk</a></div>`;
+    document.getElementById("app").append(dialog);
+  });
+</script>
+</body></html>

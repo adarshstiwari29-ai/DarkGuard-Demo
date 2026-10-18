@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Journal | Fieldwork</title>
+<link rel="stylesheet" href="style.css">
+<script src="state.js" defer>
+</script>
+<script src="app.js" defer>
+</script>
+</head>
+<body data-page="home">
+<header class="masthead">
+<a class="brand" href="advanced.html" data-local>Fieldwork<small>IDEAS FOR EVERYDAY LIVING</small>
+</a>
+<nav aria-label="Main navigation"><a href="index.html">Consent Lab 2.0</a>
+<a href="advanced.html" data-local>Journal</a>
+<a href="preferences.html" data-local>Privacy preferences</a>
+<a href="fair-consent.html" data-local>Fair consent</a>
+</nav>
+</header>
+<main>
+<section class="lab-guide" aria-labelledby="lab-guide-title">
+<div>
+<span class="eyebrow">DarkGuard demonstration path</span>
+<h2 id="lab-guide-title">A privacy journey with four review points.</h2>
+<p>This controlled publisher starts with optional tracking enabled, pushes the stronger acceptance choice, changes a saved preference later, and asks again after rejection.</p>
+</div>
+<ol class="journey-steps">
+<li><strong>Scan this page</strong><span>Review preselected consent, visual pressure, and loaded wording.</span></li>
+<li><strong>Manage preferences</strong><span>Turn Marketing OFF and save the choice.</span></li>
+<li><strong>Review the settings</strong><span>DarkGuard compares the saved choice with the later ON state.</span></li>
+<li><strong>Continue reading</strong><span>A new consent request appears after the earlier rejection.</span></li>
+</ol>
+<div class="guide-actions">
+<button type="button" data-reset-demo>Restart deceptive demo</button>
+<a href="fair-consent.html?demo=1">Open fair control</a>
+</div>
+</section>
+<section class="hero">
+<div>
+<span class="eyebrow">The considered life · Issue 08</span>
+<h1>A little more room for what matters.</h1>
+<p>Thoughtful stories about the places we live, the things we make, and the habits that shape our days.</p>
+<a href="review.html" data-local>Explore this month's journal →</a>
+</div>
+<div class="hero-art" aria-hidden="true">
+<span>Space to think.</span>
+</div>
+</section>
+<section class="cards" aria-label="Latest stories">
+<article class="card">
+<span class="eyebrow">Spaces</span>
+<h2>A home that breathes</h2>
+<p>Small changes that make everyday rooms feel calmer.</p>
+</article>
+<article class="card">
+<span class="eyebrow">Culture</span>
+<h2>The art of taking time</h2>
+<p>Meet the makers bringing care back to their craft.</p>
+</article>
+<article class="card">
+<span class="eyebrow">Perspectives</span>
+<h2>A different kind of connection</h2>
+<p>Finding a balance between the digital and the everyday.</p>
+</article>
+</section>
+<section class="consent-banner " role="dialog" aria-modal="false" aria-labelledby="cookie-title" data-consent-prompt data-initial-banner>
+<h2 id="cookie-title">Your privacy, your experience</h2>
+<p>We use essential cookies to keep this site working. Optional analytics help us understand readership; personalization and marketing help tailor stories and partner recommendations. You can change these choices at any time.</p>
+<div class="consent-options" aria-label="Optional cookie categories">
+<label>
+<input type="checkbox" data-category="analytics">
+<span><strong>Analytics cookies</strong><small>Optional · selected by default</small></span>
+</label>
+<label>
+<input type="checkbox" data-category="marketing">
+<span><strong>Partner marketing</strong><small>Optional · selected by default</small></span>
+</label>
+</div>
+<div class="choices">
+<button class="accept" type="button" data-accept>Accept All</button>
+<a href="preferences.html" data-local>Manage Preferences</a>
+<button class="weak-reject" type="button" data-reject data-direct-reject>No thanks, I don't care about protecting my privacy.</button>
+</div>
+</section>
+<p role="status" data-status>
+</p>
+<section class="privacy-summary" data-saved-summary hidden aria-labelledby="saved-title">
+<div>
+<span class="eyebrow">Saved on this device</span>
+<h2 id="saved-title">Your current privacy choices</h2>
+</div>
+<div class="summary-states">
+<span>Analytics <output data-state="analytics"></output></span>
+<span>Personalization <output data-state="personalization"></output></span>
+<span>Marketing <output data-state="marketing"></output></span>
+</div>
+<div class="guide-actions">
+<a href="preferences.html" data-local>Change preferences</a>
+<button type="button" data-reset-demo>Restart demonstration</button>
+</div>
+</section>
+<div class="scenario-links">
+<a href="advanced.html?demo=1&scenario=buried">Extra-step consent scenario</a>
+<a href="advanced.html?demo=1&scenario=neutral">Neutral-wording comparison</a>
+</div>
+</main>
+<footer>Fieldwork Journal · ConsentLab controlled environment · No real tracking or external services.</footer>
+</body>
+</html>
